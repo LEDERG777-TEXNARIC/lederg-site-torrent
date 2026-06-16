@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Все игры</h1>
+<div class="row">
+    {% for game in games %}
+    <div class="col-md-3 mb-4">
+        <div class="card">
+            <img src="{{ game.image_url }}" class="card-img-top" alt="{{ game.title }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ game.title }}</h5>
+                <p class="card-text">{{ game.description[:100] }}...</p>
+                <a href="/game/{{ game.id }}" class="btn btn-primary">Подробнее</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
