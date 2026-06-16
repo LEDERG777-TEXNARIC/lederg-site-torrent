@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ game.title }}</h1>
+<img src="{{ game.image_url }}" class="img-fluid mb-3" style="max-width:400px;">
+<p><strong>Категория:</strong> {{ game.category }}</p>
+<p><strong>Год:</strong> {{ game.year }}</p>
+<p>{{ game.description }}</p>
+<a href="/download/{{ game.id }}" class="btn btn-success">Скачать торрент</a>
+<a href="/" class="btn btn-secondary">Назад</a>
+{% endblock %}
