@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Админ-панель — добавить игру</h2>
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label>Название</label>
+        <input type="text" name="title" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Описание</label>
+        <textarea name="description" class="form-control" rows="5" required></textarea>
+    </div>
+    <div class="mb-3">
+        <label>Категория</label>
+        <input type="text" name="category" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label>Год</label>
+        <input type="number" name="year" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label>Ссылка на обложку</label>
+        <input type="url" name="image_url" class="form-control" placeholder="https://example.com/image.jpg">
+    </div>
+    <div class="mb-3">
+        <label>Торрент-файл (.torrent)</label>
+        <input type="file" name="torrent_file" class="form-control" accept=".torrent" required>
+    </div>
+    <button type="submit" class="btn btn-success">Добавить</button>
+</form>
+
+<h3 class="mt-5">Список игр</h3>
+<ul>
+    {% for game in games %}
+    <li>{{ game.title }} ({{ game.category }}) — {{ game.created_at.strftime('%d.%m.%Y') }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
