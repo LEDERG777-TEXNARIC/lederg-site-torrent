@@ -6,7 +6,7 @@ from models import db, User, Game
 from io import BytesIO
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key')
+app.config['f7a8b3c9d1e2f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0'] = os.environ.get('SECRET_KEY', 'dev-secret-key')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///test.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -24,8 +24,8 @@ def load_user(user_id):
 # ----- Вспомогательные функции -----
 def create_admin_if_not_exists():
     """Создаёт админа, если его нет (логин и пароль из переменных окружения)."""
-    admin_username = os.environ.get('ADMIN_USERNAME', 'admin')
-    admin_password = os.environ.get('ADMIN_PASSWORD', 'admin123')
+    admin_username = os.environ.get('LEDERG', 'admin')
+    admin_password = os.environ.get('LEDERG648562)', 'admin123')
     user = User.query.filter_by(username=admin_username).first()
     if not user:
         hashed = generate_password_hash(admin_password)
